@@ -1,0 +1,150 @@
+# Conky configuration
+
+# set to yes if you want Conky to be forked in the background
+background yes
+
+# Use Xft?
+use_xft yes
+
+# Xft font when Xft is enabled
+xftfont OCRABold:size=13
+
+# Text alpha when using Xft
+xftalpha 0.9
+
+# Update interval in seconds
+update_interval 1.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+
+# If own_window is yes, you may use type normal, desktop or override
+# GNOME: override, xfce: desktop, Unity: override
+own_window_type override
+
+# Use pseudo transparency with own_window?
+own_window_transparent yes
+#own_window_argb_visual yes
+
+# If own_window is yes, these window manager hints may be used
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 200 5
+
+# Maximum width
+maximum_width 260
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Draw borders around graphs
+draw_graph_borders yes
+
+# Stippled borders?
+#stippled_borders 8
+
+# border margins
+border_margin 1
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+default_color white
+default_shade_color black
+default_outline_color 3399FF
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+#alignment none
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 3
+
+gap_y 30
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Tempature Unit (either "fahrenheit" or "celsius")
+temperature_unit celsius
+
+# variable is given either in format $variable or in ${variable}
+
+# stuff after 'TEXT' will be formatted on screen
+
+# unused:
+# external IP: ${color #ff1111}External IP:${color} ${color 3399FF}${execi 10800 curl -s http://cene.ath.cx/ip.cgi}${color} 
+# ${tcp_portmon 22 22 rip 0}
+#  ${color #ff1111}COnnectios on BT ports:{color #ff1111} ${tcp_portmon 64803 64803 count} ${color}
+# ${color #ff1111}Swap:${color}${color 3399FF} ${swapperc}% Used${color}
+# Weather
+# ${color 3399FF}Weather ${hr 2}${color}
+# ${execi 3600 python /home/jackson/scripts/conkyForecast/conkyForecast.py --location=USWA0468 --template=/home/jackson/scripts/conkyForecast/conkyForecast.template}
+# HDD temp ${color #ff1111}HDD Temp:${color}${color 3399FF} ${execi 1 nc localhost 7634 | cut -c33-34 ;}C${color}
+
+TEXT
+${color #3399FF}Jackson @ 
+$nodename 
+
+${color 3399FF}Kernel: 
+$kernel ${color}
+
+${color 3399FF}Conky Version: 
+$conky_version ${color}
+${color #ff1111}${hr 3} ${color}
+${color 3399FF}General ${hr 2}${color}
+${color #ff1111}Uptime:${color}${color 3399FF}$alignr$uptime${color}
+
+${color 3399FF}Network ${hr 2}${color}
+${color #ff1111}Up Speed:${color}${color 3399FF} ${upspeed wlan0} ${color}
+${color #ff1111}Down Speed:${color}${color 3399FF} ${downspeed wlan0} ${color}
+${color #ff1111}Strength:${color}${color 3399FF} ${wireless_link_qual_perc wlan0}%${color}
+
+${color 3399FF}RAM/CPU ${hr 2}${color} 
+${color #ff1111}RAM:${color}${color 3399FF} ${memperc}% $mem${color}
+${color #ff1111}Core1:${color}${color 3399FF} ${cpu cpu1}%${cpubar cpu1}${color}
+${color #ff1111}Core2:${color}${color 3399FF} ${cpu cpu2}%${cpubar cpu2}${color}
+${color #ff1111}CPU Temp:${color}${color 3399FF} ${hwmon 0 temp 1} °C ${color}   
+ 
+${color 3399FF}Storage ${hr 2}${color}
+${color #ff1111}/:${color}${color 3399FF} ${fs_used_perc /}% Used${color}
+${color #ff1111}/home:${color}${color 3399FF} ${fs_used_perc /home}% Used${color}
+${color #ff1111}Read:${color}${color 3399FF} ${diskio_read}${color}
+${color #ff1111}Write:${color}${color 3399FF} ${diskio_write}${color}
+
+
+
+#${color 3399FF}Proccesses ${hr 2}${color}
+# ${color #ff1111}Total:${color} ${color 3399FF}$processes${color}    
+# ${color #ff1111}Running:${color} ${color 3399FF}$running_processes${color}
+
+

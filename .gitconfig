@@ -1,0 +1,9 @@
+[user]
+	name = Jackson Tate
+	email = JT9161@gmail.com
+[credential]
+	helper = cache
+[color]
+	ui = true
+[core]
+	editor = vim
