@@ -3,13 +3,14 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt autocd
-bindkey -v
+#bindkey -v
 # End of lines configured by zsh-newuser-install
 
 ## Custom prompt
-autoload -U promptinit
+autoload -U promptinit 
 promptinit
-PROMPT="%n:%~%# "
+PROMPT="%n:%~/ # "
+PROMPT="%~ > "
 
 ## SSH Aliases
 alias ssh_pi='ssh -i ~/.ssh/pi pi@10.0.0.11'
@@ -24,3 +25,8 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+#alias cs466='cd ~/School/2016Spring/CS466'
+alias gcc='gcc -Wall -g -std=c99'
+
+setopt HIST_IGNORE_DUPS
